@@ -6,6 +6,7 @@ public class Calculator {
 		if(input == ""){
 			return 0;
 		}
+		return 1;
 	}
 
 }
