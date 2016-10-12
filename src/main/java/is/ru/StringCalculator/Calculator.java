@@ -9,11 +9,20 @@ public class Calculator {
 		}
 		else if(input.contains(",")){
 			String[] numbers = input.split(",");
-			return (Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
+			return sum(numbers);
 		}
 		else{
-			int returnValue = Integer.parseInt(input);
-			return returnValue;
+			return toInt(input);
 		}
+	}
+
+	public static int toInt(String number){
+		return Integer.parseInt(number);
 	}		
+	public static int sum(String[] numbers){
+		int sum = 0;
+		for(String number : numbers)
+			sum += toInt(number);
+		return sum;
+	}
 }
