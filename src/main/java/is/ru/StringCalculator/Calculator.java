@@ -4,6 +4,10 @@ public class Calculator {
 	
 	public static int add(String input){
 	
+		if(input.contains("\n")){
+			input = input.replaceAll("\n", ",");
+		}
+
 		if(input == ""){
 			return 0;
 		}
