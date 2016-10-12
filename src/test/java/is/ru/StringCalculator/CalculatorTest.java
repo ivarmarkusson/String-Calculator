@@ -24,4 +24,9 @@ public class CalculatorTest{
 	public void testTwoNumbers(){
 		assertEquals(10, Calculator.add("5,5"));
 	}
+
+	@Test
+	public void testMultipleNumbers(){
+		assertEquals(40, Calculator.add("15,20,5"));
+	}
 }
