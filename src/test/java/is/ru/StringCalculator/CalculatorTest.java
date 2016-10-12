@@ -22,6 +22,6 @@ public class CalculatorTest{
 
 	@Test
 	public void testTwoNumbers(){
-		asserEquals(10, Calculator.add("5,5"));
+		assertEquals(10, Calculator.add("5,5"));
 	}
 }

@@ -7,8 +7,13 @@ public class Calculator {
 		if(input == ""){
 			return 0;
 		}
-		
-		int returnValue = Integer.parseInt(input);
-		return returnValue;
+		else if(input.contains(",")){
+			String[] numbers = input.split(",");
+			return (Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
+		}
+		else{
+			int returnValue = Integer.parseInt(input);
+			return returnValue;
+		}
 	}		
 }
