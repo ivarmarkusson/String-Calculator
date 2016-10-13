@@ -13,14 +13,16 @@ public class Calculator {
 		}
 		else if(input.contains(",")){
 			String[] numbers = input.split(",");
-			checkNegative(numbers);
+			numbers = checkNumbers(numbers);
 
 			return sum(numbers);
 		}
 		else{
 			if(toInt(input) < 0)
 				throw new IllegalArgumentException("Negatives not allowed: " + input);
-
+			else if(toInt(input) > 1000){
+				return 0;
+			}
 			return toInt(input);
 		}
 	}
@@ -34,12 +36,15 @@ public class Calculator {
 			sum += toInt(number);
 		return sum;
 	}
-	public static void checkNegative(String[] numbers){
+	public static String[] checkNumbers(String[] numbers){
 		String numbs = "";
 
-		for(String number : numbers){
-			if(toInt(number) < 0){
-				numbs += number + ",";
+		for(int i = 0; i < numbers.length; i++){
+			if(toInt(numbers[i]) > 1000){
+				numbers[i] = "0";
+			}
+			if(toInt(numbers[i]) < 0){
+				numbs += numbers[i] + ",";
 			}
 		}
 		
@@ -47,5 +52,6 @@ public class Calculator {
 			numbs = numbs.substring(0, (numbs.length()-1));
 			throw new IllegalArgumentException("Negatives not allowed: " + numbs);
 		}
+		return numbers;
 	}
 }
