@@ -14,6 +14,7 @@ public class Calculator {
 		else if(input.contains(",")){
 			String[] numbers = input.split(",");
 			checkNegative(numbers);
+
 			return sum(numbers);
 		}
 		else{
@@ -34,10 +35,17 @@ public class Calculator {
 		return sum;
 	}
 	public static void checkNegative(String[] numbers){
+		String numbs = "";
+
 		for(String number : numbers){
 			if(toInt(number) < 0){
-				throw new IllegalArgumentException("Negatives not allowed: " + number);
+				numbs += number + ",";
 			}
+		}
+		
+		if(numbs != ""){
+			numbs = numbs.substring(0, (numbs.length()-1));
+			throw new IllegalArgumentException("Negatives not allowed: " + numbs);
 		}
 	}
 }
