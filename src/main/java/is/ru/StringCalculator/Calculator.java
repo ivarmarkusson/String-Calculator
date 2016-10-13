@@ -13,9 +13,13 @@ public class Calculator {
 		}
 		else if(input.contains(",")){
 			String[] numbers = input.split(",");
+			checkNegative(numbers);
 			return sum(numbers);
 		}
 		else{
+			if(toInt(input) < 0)
+				throw new IllegalArgumentException("Negatives not allowed: " + input);
+
 			return toInt(input);
 		}
 	}
@@ -28,5 +32,12 @@ public class Calculator {
 		for(String number : numbers)
 			sum += toInt(number);
 		return sum;
+	}
+	public static void checkNegative(String[] numbers){
+		for(String number : numbers){
+			if(toInt(number) < 0){
+				throw new IllegalArgumentException("Negatives not allowed: " + number);
+			}
+		}
 	}
 }
