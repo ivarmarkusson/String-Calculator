@@ -2,8 +2,18 @@ package is.ru.StringCalculator;
 
 public class Calculator {
 	
-	public static int add(String input){
 	
+	public static int add(String input){
+		
+		String delimeter;
+
+		if(input.startsWith("//")  && input.contains("\n")){
+			delimeter = Character.toString(input.charAt(2));
+			input = input.substring(4, input.length());
+			input = input.replaceAll(delimeter, ",");
+		}		
+
+
 		if(input.contains("\n")){
 			input = input.replaceAll("\n", ",");
 		}
