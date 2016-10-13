@@ -21,7 +21,7 @@ public class Calculator {
 		if(input == ""){
 			return 0;
 		}
-		else if(input.contains(",")){
+		if(input.contains(",")){
 			String[] numbers = input.split(",");
 			numbers = checkNumbers(numbers);
 

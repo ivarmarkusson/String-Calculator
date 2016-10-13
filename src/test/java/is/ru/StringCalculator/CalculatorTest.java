@@ -66,4 +66,8 @@ public class CalculatorTest{
 	public void testDelimeter(){
 		assertEquals(2, Calculator.add("//;\n1;1"));
 	}	
+	@Test
+	public void testManyDelimeters(){
+		assertEquals(4,"//;\n1;1,1\n1");
+	}
 }
